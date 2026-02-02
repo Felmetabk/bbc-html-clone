@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC - Homepage</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header class="bbc-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="bbc-logo">BBC</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#" class="active" data-category="home">Home</a></li>
+                    <li><a href="#" data-category="technology">Technology</a></li>
+                    <li><a href="#" data-category="sport">Sport</a></li>
+                    <li><a href="#" data-category="weather">Weather</a></li>
+                    <li><a href="#" data-category="iplayer">iPlayer</a></li>
+                    <li><a href="#" data-category="science">Science</a></li>
+                    <li><a href="#" data-category="ethiopia">Ethiopia</a></li>
+                </ul>
+            </nav>
+
+            <a href="signin.html" class="sign-in-link">
+                Sign in
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search BBC">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="welcome-section">
+            <h1>Welcome to the BBC</h1>
+            <p class="date-display" id="currentDate">Thursday, 29 January</p>
+        </section>
+
+        <section class="news-grid" id="newsGrid">
+            <article class="news-card hero-card" data-category="world">
+                <img src="weather.jpg" alt="An image related to climate action" class="thumbnail-img hero-thumb">
+                <div class="content">
+                    <h2><a href="#">Global Summit Reaches Historic Agreement on Climate Action</a></h2>
+                    <p>World leaders unite to sign a new pact aiming for net-zero emissions by 2040.</p>
+                    <span class="tag">World</span>
+                    <div class="full-story">
+                        <p>The agreement, signed by 195 nations, includes binding targets for carbon reduction and a multi-billion dollar fund to assist developing nations in transitioning to green energy. "Today, we have chosen a future for our children," the UN Secretary-General stated during the closing ceremony.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="technology">
+                <img src="quantum.jpg" alt="A glowing quantum processor chip" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Tech Giant Unveils Revolutionary Quantum Processor</a></h3>
+                    <p>The new chip promises to solve complex problems in seconds.</p>
+                    <span class="tag">Technology</span>
+                    <div class="full-story">
+                        <p>This breakthrough in quantum computing could revolutionize fields from medicine to cryptography. The processor operates at near absolute zero and utilizes 1,000 stable qubits, a significant leap forward from previous iterations.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="uk">
+                <img src="catmayor.jpg" alt="A cat wearing a small mayoral sash" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Local Cat Becomes Mayor of Small Town</a></h3>
+                    <p>Residents voted overwhelmingly for the feline candidate named Whiskers.</p>
+                    <span class="tag">UK</span>
+                    <div class="full-story">
+                        <p>Whiskers' platform focused on increased tuna subsidies and more sunny spots for napping. While the role is ceremonial, the town has seen a 200% increase in tourism since the 'purr-fect' election result was announced.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="sport">
+                <img src="city.jpg" alt="Football players celebrating a goal" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Football: City Secure Last-Minute Win Against Rivals</a></h3>
+                    <p>A dramatic header in stoppage time seals the victory.</p>
+                    <span class="tag">Sport</span>
+                    <div class="full-story">
+                        <p>The match seemed destined for a draw until the 94th minute when a corner kick found the captain's head. The stadium erupted as the ball hit the back of the net, keeping City's title hopes alive.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="science">
+                <img src="telescope.jpg" alt="A stunning, colorful nebula in deep space" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">New Space Telescope Sends Back Stunning Images of Nebula</a></h3>
+                    <p>Astronomers are baffled by the clarity of the new deep space photos.</p>
+                    <span class="tag">Science</span>
+                    <div class="full-story">
+                        <p>Using advanced infrared sensors, the telescope captured star-forming regions never seen before. These images provide critical data on how stars are born and how galaxies evolve over billions of years.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="weather">
+                <img src="snowfall.jpg" alt="A street covered in a thick blanket of snow" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Heavy Snowfall Expected Across Northern Regions</a></h3>
+                    <p>Met Office issues yellow warning for ice and snow this weekend.</p>
+                    <span class="tag">Weather</span>
+                    <div class="full-story">
+                        <p>Up to 20cm of snow could fall on high ground, with significant travel disruptions expected. Local councils are urging residents to check on elderly neighbors and avoid unnecessary travel.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="entertainment">
+                <img src="sitcom.jpg" alt="The cast of a classic sitcom reunited on a couch" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Classic Sitcom Returns for a One-Off Special</a></h3>
+                    <p>Original cast members reunite for a holiday themed episode.</p>
+                    <span class="tag">Entertainment</span>
+                    <div class="full-story">
+                        <p>Fans have been waiting over a decade for this reunion. The special episode will catch up with the characters' lives in the present day, promising both nostalgic laughs and a few emotional surprises.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="health">
+                <img src="coffee.jpg" alt="A cup of black coffee on a wooden table" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Study Finds Coffee May Help You Live Longer</a></h3>
+                    <p>Researchers suggest 3 cups a day could reduce health risks.</p>
+                    <span class="tag">Health</span>
+                    <div class="full-story">
+                        <p>The long-term study followed 500,000 participants and found that moderate coffee consumption was associated with lower rates of heart disease and type 2 diabetes. However, doctors still advise against excessive caffeine intake.</p>
+                    </div>
+                </div>
+            </article>
+
+             <article class="news-card" data-category="business">
+                <img src="stock.jpg" alt="A graph showing stock market prices going up" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Stock Markets Rally as Inflation Data Improves</a></h3>
+                    <p>Investors are optimistic following the latest government report.</p>
+                    <span class="tag">Business</span>
+                    <div class="full-story">
+                        <p>The latest figures show inflation cooling faster than expected, leading many to believe that the central bank will pause interest rate hikes. Tech stocks saw the largest gains during the morning session.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="sport">
+                <img src="tennis.jpg" alt="A young tennis player celebrating a point at Wimbledon" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Tennis: Young Star Breaks Record at Wimbledon</a></h3>
+                    <p>The 18-year-old becomes the youngest ever finalist.</p>
+                    <span class="tag">Sport</span>
+                    <div class="full-story">
+                        <p>After a grueling five-set semi-final, the newcomer proved their resilience and skill. "I grew up watching these legends on TV, and now I'm playing against them," they said during the post-match interview.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="history">
+                <img src="sudanpyramids.jpg" alt="Ancient pyramids under a clear blue sky" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Mystery of the Ancient Pyramids Finally Solved?</a></h3>
+                    <p>Archaeologists discover a hidden chamber that changes everything.</p>
+                    <span class="tag">History</span>
+                    <div class="full-story">
+                        <p>Using muon tomography, researchers mapped a 30-meter void within the grand structure. Initial scans suggest the chamber contains untouched burial artifacts that could date back over 4,500 years.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="food">
+                <img src="pasta.jpg" alt="A delicious-looking bowl of pasta with basil" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Delicious 15-Minute Pasta Recipes for Dinner</a></h3>
+                    <p>Quick and easy meals that taste like they took hours.</p>
+                    <span class="tag">Food</span>
+                    <div class="full-story">
+                        <p>The secret lies in using high-quality pasta water and fresh herbs. From classic Aglio e Olio to a creamy lemon-spinach sauce, these recipes are perfect for busy weeknights when you still want a gourmet meal.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="environment">
+                <img src="heatwave.jpg" alt="A thermometer showing a very high temperature during a heatwave" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Record-Breaking Heatwave Grips Southern Europe</a></h3>
+                    <p>Temperatures soar, leading to widespread travel disruptions and health warnings.</p>
+                    <span class="tag">Environment</span>
+                    <div class="full-story">
+                        <p>Authorities have opened cooling centers in major cities as the mercury hits 45°C. Climate scientists warn that such extreme weather events are becoming more frequent due to rising global temperatures.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="science">
+                <img src="forestation.jpg" alt="A lush green rainforest canopy" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Scientists Discover New Species in Amazon Rainforest</a></h3>
+                    <p>Expedition uncovers a previously unknown amphibian, highlighting biodiversity.</p>
+                    <span class="tag">Science</span>
+                    <div class="full-story">
+                        <p>The small frog has a unique translucent skin and a call that mimics local birds. This discovery emphasizes the importance of protecting the Amazon from further deforestation and habitat loss.</p>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="news-card" data-category="ethiopia">
+                <img src="forestation.jpg" alt="People planting new trees on a hillside in Ethiopia" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Ethiopia Launches Major Reforestation Initiative</a></h3>
+                    <p>Millions of trees are being planted across the country in a record-breaking environmental campaign.</p>
+                    <span class="tag">Ethiopia</span>
+                    <div class="full-story">
+                        <p>The 'Green Legacy' project aims to tackle climate change and soil erosion. Citizens from all walks of life have joined the effort, planting native species to restore Ethiopia's once-vast forest cover.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="ethiopia">
+                <img src="addisababatech.png" alt="A modern office building in Addis Ababa's tech hub" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Addis Ababa's Tech Hub Attracts Global Investment</a></h3>
+                    <p>A new wave of startups in the capital is driving innovation and securing international funding.</p>
+                    <span class="tag">Ethiopia</span>
+                    <div class="full-story">
+                        <p>Vcapital firms are flocking to Addis Ababa, eyeing opportunities in fintech and e-commerce. The government has introduced new policies to support entrepreneurs and improve digital infrastructure.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="ethiopia">
+                <img src="manuscript.jpg" alt="An ancient, beautifully illustrated Ethiopian manuscript" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Ancient Ethiopian Manuscripts Digitized for Global Access</a></h3>
+                    <p>A project to preserve and share priceless historical texts has been completed, opening them to the world.</p>
+                    <span class="tag">Ethiopia</span>
+                    <div class="full-story">
+                        <p>Researchers used high-resolution imaging to capture thousands of pages of Ge'ez manuscripts. These texts, some dating back to the 4th century, offer unique insights into early African history and theology.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="sport">
+                <img src="rugby.jpg" alt="Rugby players in a scrum during a match" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Rugby World Cup Finalists Confirmed</a></h3>
+                    <p>Two giants of the sport will face off in this weekend's thrilling conclusion.</p>
+                    <span class="tag">Sport</span>
+                    <div class="full-story">
+                        <p>After a tournament filled with upsets, the defending champions will face the tournament favorites. Both teams have shown incredible physicality and tactical brilliance to reach the final stage.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="weather">
+                <img src="weather.jpg" alt="A weather map showing unusually warm winter temperatures" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Unseasonably Warm Winter Raises Climate Concerns</a></h3>
+                    <p>Scientists analyze data showing a trend of warmer winters across the globe.</p>
+                    <span class="tag">Weather</span>
+                    <div class="full-story">
+                        <p>Records have been broken in several European countries, with some areas seeing spring-like temperatures in January. This trend could disrupt ecosystems and impact agriculture in the coming year.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card" data-category="sport">
+                <img src="f1.jpg" alt="A Formula 1 car racing on a track" class="thumbnail-img">
+                <div class="content">
+                    <h3><a href="#">Formula 1 Team Announces New Lead Driver</a></h3>
+                    <p>A rising star joins a top-tier team for the upcoming racing season.</p>
+                    <span class="tag">Sport</span>
+                    <div class="full-story">
+                        <p>The 21-year-old driver has already impressed in the lower categories. Their aggressive driving style and technical knowledge are expected to bring a new dynamic to the team as they challenge for the championship.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <div id="noResults" class="hidden">
+            <p>No results found for your search.</p>
+        </div>
+    </main>
+
+    <footer class="bbc-footer" id="mainFooter">
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Explore the BBC</h4>
+                <ul id="footerNav">
+                    <li><a href="#" class="footer-filter-link" data-category="home">Home</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="technology">Technology</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="sport">Sport</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="weather">Weather</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="iplayer">iPlayer</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="science">Science</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="ethiopia">Ethiopia</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="entertainment">Entertainment</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="health">Health</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="business">Business</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="history">History</a></li>
+                    <li><a href="#" class="footer-filter-link" data-category="food">Food</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>BBC News Services</h4>
+                <ul>
+                    <li><a href="#">On your mobile</a></li>
+                    <li><a href="#">On your connected TV</a></li>
+                    <li><a href="#">Get news alerts</a></li>
+                    <li><a href="#">Contact News</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>More from BBC</h4>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">About the BBC</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Accessibility Help</a></li>
+                    <li><a href="#">Parental Guidance</a></li>
+                    <li><a href="#">Contact the BBC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BBC. The BBC is not responsible for the content of external sites.</p>
+        </div>
+    </footer>
+
+    <div id="article-viewer" class="article-viewer">
+        <button class="close-viewer-btn" id="closeViewerBtn">×</button>
+        <div class="viewer-content-wrapper">
+            <img src="" alt="Article image" id="viewerImg" class="viewer-img">
+            <div class="viewer-text-content">
+                <h1 id="viewerTitle"></h1>
+                <p id="viewerText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
