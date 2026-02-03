@@ -19,7 +19,7 @@ This project is a high-fidelity, responsive clone of the BBC homepage, built usi
 ---
 
 ## 3. File Structure
-*   `bbc.html`: The core landing page containing the header, news grid, and footer.
+*   `index.html`: The core landing page containing the header, news grid, and footer.
 *   `signin.html`: A clean login portal with integrated credential validation.
 *   `register.html`: A registration page featuring advanced regex-based form validation.
 *   `index.css`: Central stylesheet managing layouts, animations, and responsive breakpoints.
