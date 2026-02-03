@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC - Register</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background-color: #f6f6f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .register-container {
+            background: white;
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            margin-top: 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .bbc-logo-large {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .register-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .register-btn:hover {
+            background-color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #004F9F;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .input-error {
+            border: 2px solid #bb0000 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bbc-logo-large">BBC</div>
+
+    <div class="register-container">
+        <h1 style="margin-bottom: 20px;">Register for a BBC account</h1>
+        
+        <div id="error-message" style="background-color: #fbeaea; border: 1px solid #bb0000; color: #bb0000; padding: 12px; margin-bottom: 20px; display: none; font-size: 0.9rem; font-weight: bold;"></div>
+
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <button type="button" id="registerBtn" class="register-btn">Register</button>
+        </form>
+
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+            Already have a BBC account? <a href="signin.html" style="color: #004F9F;">Sign in now</a>.
+        </p>
+
+        <a href="bbc.html" class="back-link">← Back to BBC</a>
+    </div>
+
+    <script>
+        document.getElementById('registerBtn').addEventListener('click', () => {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+            const errorDiv = document.getElementById('error-message');
+            let errors = [];
+
+            
+            errorDiv.style.display = 'none';
+            email.classList.remove('input-error');
+            password.classList.remove('input-error');
+            confirmPassword.classList.remove('input-error');
+
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                errors.push('Please enter a valid email address.');
+                email.classList.add('input-error');
+            }
+
+            // Password regex: min 8 chars, at least one uppercase, one lowercase, one number and one special character
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password.value)) {
+                errors.push('Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.');
+                password.classList.add('input-error');
+            }
+
+            if (password.value !== confirmPassword.value) {
+                errors.push('Passwords do not match.');
+                confirmPassword.classList.add('input-error');
+            }
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.join('<br>');
+                errorDiv.style.display = 'block';
+            } else {
+                alert('Account created successfully!');
+                window.location.href = 'bbc.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
