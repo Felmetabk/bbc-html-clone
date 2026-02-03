@@ -110,42 +110,51 @@
     </div>
 
     <script>
+        // Attaches a click event listener to the register button.
         document.getElementById('registerBtn').addEventListener('click', () => {
+            // --- Element Selectors ---
             const email = document.getElementById('email');
             const password = document.getElementById('password');
             const confirmPassword = document.getElementById('confirm-password');
             const errorDiv = document.getElementById('error-message');
-            let errors = [];
+            let errors = []; // Array to store validation error messages.
 
-            
+            // --- UI Reset ---
+            // Hides previous error messages and removes red borders from inputs.
             errorDiv.style.display = 'none';
             email.classList.remove('input-error');
             password.classList.remove('input-error');
             confirmPassword.classList.remove('input-error');
 
-            // Email validation regex
+            // --- Validation Logic ---
+            // 1. Validate email format using a regular expression.
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email.value)) {
                 errors.push('Please enter a valid email address.');
                 email.classList.add('input-error');
             }
 
-            // Password regex: min 8 chars, at least one uppercase, one lowercase, one number and one special character
+            // 2. Validate Password complexity using a regular expression.
+            // Requires: min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special character.
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             if (!passwordRegex.test(password.value)) {
                 errors.push('Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.');
                 password.classList.add('input-error');
             }
 
+            // 3. Check if passwords match.
             if (password.value !== confirmPassword.value) {
                 errors.push('Passwords do not match.');
                 confirmPassword.classList.add('input-error');
             }
 
+            // --- Final Action ---
+            // If any errors were found, display them.
             if (errors.length > 0) {
                 errorDiv.innerHTML = errors.join('<br>');
                 errorDiv.style.display = 'block';
             } else {
+                // If validation passes, simulate successful registration and redirect.
                 alert('Account created successfully!');
                 window.location.href = 'bbc.html';
             }

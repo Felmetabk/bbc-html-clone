@@ -106,34 +106,42 @@
     </div>
 
     <script>
+        // Attaches a click event listener to the sign-in button.
         document.getElementById('signinBtn').addEventListener('click', () => {
+            // --- Element Selectors ---
             const email = document.getElementById('email');
             const password = document.getElementById('password');
             const errorDiv = document.getElementById('error-message');
-            let errors = [];
+            let errors = []; // Array to store validation error messages.
 
-            // Reset UI
+            // --- UI Reset ---
+            // Hides previous error messages and removes red borders from inputs.
             errorDiv.style.display = 'none';
             email.classList.remove('input-error');
             password.classList.remove('input-error');
 
-            // Validation
+            // --- Validation Logic ---
+            // 1. Validate Email/Username length.
             if (email.value.trim().length < 3) {
                 errors.push('Enter a valid email or username (min 3 chars).');
-                email.classList.add('input-error');
+                email.classList.add('input-error'); // Highlight the input field with an error.
             }
 
-            // Password regex: min 8 chars, at least one uppercase, one lowercase, one number and one special character
+            // 2. Validate Password complexity using a regular expression.
+            // Requires: min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special character.
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             if (!passwordRegex.test(password.value)) {
                 errors.push('Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.');
                 password.classList.add('input-error');
             }
 
+            // --- Final Action ---
+            // If any errors were found, display them.
             if (errors.length > 0) {
-                errorDiv.innerHTML = errors.join('<br>');
+                errorDiv.innerHTML = errors.join('<br>'); // Display all errors.
                 errorDiv.style.display = 'block';
             } else {
+                // If validation passes, simulate a successful sign-in and redirect.
                 alert('Sign in successful!');
                 window.location.href = 'bbc.html';
             }
