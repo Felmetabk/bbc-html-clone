@@ -82,8 +82,9 @@
         <h1 style="margin-bottom: 20px;">Register for a BBC account</h1>
         
         <div id="error-message" style="background-color: #fbeaea; border: 1px solid #bb0000; color: #bb0000; padding: 12px; margin-bottom: 20px; display: none; font-size: 0.9rem; font-weight: bold;"></div>
+        <div id="success-message" style="background-color: #f6ffed; border: 1px solid #b7eb8f; color: #333; padding: 12px; margin-bottom: 20px; display: none; font-size: 0.9rem; font-weight: bold;"></div>
 
-        <form>
+        <form id="register-form">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
@@ -99,7 +100,7 @@
                 <input type="password" id="confirm-password" name="confirm-password" required>
             </div>
 
-            <button type="button" id="registerBtn" class="register-btn">Register</button>
+            <button type="submit" id="registerBtn" class="register-btn">Register</button>
         </form>
 
         <p style="margin-top: 20px; font-size: 0.9rem;">
@@ -110,53 +111,54 @@
     </div>
 
     <script>
-        // Attaches a click event listener to the register button.
-        document.getElementById('registerBtn').addEventListener('click', () => {
+        // Attaches a submit event listener to the form for better accessibility.
+        document.getElementById('register-form').addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevents the default form submission behavior.
+
             // --- Element Selectors ---
             const email = document.getElementById('email');
             const password = document.getElementById('password');
             const confirmPassword = document.getElementById('confirm-password');
             const errorDiv = document.getElementById('error-message');
-            let errors = []; // Array to store validation error messages.
+            const successDiv = document.getElementById('success-message');
+            let errors = [];
 
             // --- UI Reset ---
-            // Hides previous error messages and removes red borders from inputs.
             errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
             email.classList.remove('input-error');
             password.classList.remove('input-error');
             confirmPassword.classList.remove('input-error');
 
             // --- Validation Logic ---
-            // 1. Validate email format using a regular expression.
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email.value)) {
                 errors.push('Please enter a valid email address.');
                 email.classList.add('input-error');
             }
 
-            // 2. Validate Password complexity using a regular expression.
-            // Requires: min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special character.
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             if (!passwordRegex.test(password.value)) {
                 errors.push('Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.');
                 password.classList.add('input-error');
             }
 
-            // 3. Check if passwords match.
             if (password.value !== confirmPassword.value) {
                 errors.push('Passwords do not match.');
                 confirmPassword.classList.add('input-error');
             }
 
             // --- Final Action ---
-            // If any errors were found, display them.
             if (errors.length > 0) {
                 errorDiv.innerHTML = errors.join('<br>');
                 errorDiv.style.display = 'block';
             } else {
-                // If validation passes, simulate successful registration and redirect.
-                alert('Account created successfully!');
-                window.location.href = 'bbc.html';
+                // If validation passes, show success and redirect to the sign-in page.
+                successDiv.textContent = 'Account created successfully! Redirecting to sign-in...';
+                successDiv.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'signin.html';
+                }, 2000); // Redirect after 2 seconds.
             }
         });
     </script>
