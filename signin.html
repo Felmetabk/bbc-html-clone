@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC - Sign in</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Specific overrides for sign-in page */
+        body {
+            background-color: #f6f6f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .signin-container {
+            background: white;
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            margin-top: 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .bbc-logo-large {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .signin-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .signin-btn:hover {
+            background-color: #333;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #004F9F;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .input-error {
+            border: 2px solid #bb0000 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bbc-logo-large">BBC</div>
+
+    <div class="signin-container">
+        <h1 style="margin-bottom: 20px;">Sign in with your BBC account</h1>
+        
+        <div id="error-message" style="background-color: #fbeaea; border: 1px solid #bb0000; color: #bb0000; padding: 12px; margin-bottom: 20px; display: none; font-size: 0.9rem; font-weight: bold;"></div>
+
+        <form>
+            <div class="form-group">
+                <label for="email">Email or username</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <button type="button" id="signinBtn" class="signin-btn">Sign in</button>
+        </form>
+
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+            Don't have a BBC account? <a href="register.html" style="color: #004F9F;">Register now</a>.
+        </p>
+
+        <a href="bbc.html" class="back-link">← Back to BBC</a>
+    </div>
+
+    <script>
+        document.getElementById('signinBtn').addEventListener('click', () => {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const errorDiv = document.getElementById('error-message');
+            let errors = [];
+
+            // Reset UI
+            errorDiv.style.display = 'none';
+            email.classList.remove('input-error');
+            password.classList.remove('input-error');
+
+            // Validation
+            if (email.value.trim().length < 3) {
+                errors.push('Enter a valid email or username (min 3 chars).');
+                email.classList.add('input-error');
+            }
+
+            // Password regex: min 8 chars, at least one uppercase, one lowercase, one number and one special character
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password.value)) {
+                errors.push('Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.');
+                password.classList.add('input-error');
+            }
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.join('<br>');
+                errorDiv.style.display = 'block';
+            } else {
+                alert('Sign in successful!');
+                window.location.href = 'bbc.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
